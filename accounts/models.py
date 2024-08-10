@@ -69,9 +69,16 @@ class User(AbstractBaseUser):
 
     def has_perm(self, perm, obj=None):
         return self.is_admin
-    
+
     def has_module_perms(self, app_label):
         return True
+
+    def get_role(self):
+        if self.role == 1:
+            user_role = "Vendor"
+        elif self.role == 2:
+            user_role = "Customer"
+        return user_role
 
 
 class UserProfile(models.Model):
@@ -100,5 +107,3 @@ class UserProfile(models.Model):
     #         self.location = Point(float(self.longitude), float(self.latitude))
     #         return super(UserProfile, self).save(*args, **kwargs)
     #     return super(UserProfile, self).save(*args, **kwargs)
-
-    
