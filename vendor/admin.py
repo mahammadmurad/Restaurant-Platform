@@ -5,3 +5,4 @@ from .models import Vendor
 class VendorAdmin(admin.ModelAdmin):
     list_display = ("vendor_name", "user", "created_at", "is_approved")
     list_display_links = ("vendor_name", "user")
+    list_editable = ('is_approved',)
