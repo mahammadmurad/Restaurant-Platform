@@ -81,7 +81,7 @@ class User(AbstractBaseUser):
         return user_role
 
 
-class UserProfile(models.Model):
+class UserProfile(models.Model): 
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     profile_image = models.ImageField(upload_to='users/profile_photos', blank=True, null=True)
     cover_photo = models.ImageField(upload_to='users/cover_photos', blank=True, null=True)
